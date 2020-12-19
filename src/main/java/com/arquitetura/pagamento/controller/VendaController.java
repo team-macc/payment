@@ -29,10 +29,7 @@ import com.arquitetura.pagamento.service.VendaService;
 @RestController
 @RequestMapping("/venda")
 public class VendaController {
-	
-	@Value("${server.port}")
-	private Long port;
-	
+
 	private final VendaService vendaService;
     private final PagedResourcesAssembler<VendaVO> assembler;
     
@@ -41,11 +38,6 @@ public class VendaController {
         super();
         this.vendaService = vendaService;
         this.assembler = assembler;
-    }
-    
-    @RequestMapping("/mostrarPorta")
-    public String mostrarPorta() {
-    	return port.toString();
     }
 
     @GetMapping(value = "/{id}", produces = {"application/json","application/xml","application/x-yaml"})
